@@ -1,0 +1,53 @@
+﻿<Window x:Class="MyVacation.DataView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyVacation"
+        mc:Ignorable="d"
+        Title="DataView" Height="450" Width="1170" Topmost="True" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <ListView x:Name="griddata" HorizontalAlignment="Center">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="true">
+                            <GridViewColumn x:Name="Airlines" DisplayMemberBinding="{Binding Path=Airlines}" Header="Airline"/>
+                            <GridViewColumn x:Name="daName" DisplayMemberBinding="{Binding Path=daName}" Header="Origin (Departure)"/>
+                            <GridViewColumn x:Name="dTime" DisplayMemberBinding="{Binding Path=dTime}" Header="Origin Time (Departure)"/>
+                            <GridViewColumn x:Name="raName" DisplayMemberBinding="{Binding Path=raName}" Header="Destination (Departure)"/>
+                            <GridViewColumn x:Name="rTime" DisplayMemberBinding="{Binding Path=rTime}" Header="Destination Time (Departure)"/>
+                            <GridViewColumn x:Name="_daName" DisplayMemberBinding="{Binding Path=_daName}" Header="Origin (Return)"/>
+                            <GridViewColumn x:Name="_dTime" DisplayMemberBinding="{Binding Path=_dTime}" Header="Origin Time (Return)"/>
+                            <GridViewColumn x:Name="_raName" DisplayMemberBinding="{Binding Path=_raName}" Header="Destination (Return)"/>
+                            <GridViewColumn x:Name="_rTime" DisplayMemberBinding="{Binding Path=_rTime}" Header="Destination Time (Return)"/>
+                            <GridViewColumn x:Name="Link" Header="Link">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock HorizontalAlignment="Center">
+                                            <Hyperlink NavigateUri="{Binding Path=Link}" RequestNavigate="RedirectToLink">
+                                                Go To Website
+                                            </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

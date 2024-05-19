@@ -1,0 +1,52 @@
+﻿<Window x:Class="MyVacation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyVacation"
+        mc:Ignorable="d"
+        Title="MyVacation" Height="400" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="From "/>
+                <TextBox x:Name="from" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="To      "/>
+                <TextBox x:Name="to" Text="Everywhere" Width="200"/>
+            </StackPanel>
+            <GroupBox Header="Departure Date">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Day: "/>
+                    <TextBox x:Name="dday" Width="30"/>
+                    <TextBlock Text=" Month: "/>
+                    <TextBox x:Name="dmonth" Width="30"/>
+                    <TextBlock Text=" Year: "/>
+                    <TextBox x:Name="dyear" Width="50"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Return Date">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Day: "/>
+                    <TextBox x:Name="rday" Width="30"/>
+                    <TextBlock Text=" Month: "/>
+                    <TextBox x:Name="rmonth" Width="30"/>
+                    <TextBlock Text=" Year: "/>
+                    <TextBox x:Name="ryear" Width="50"/>
+                </StackPanel>
+            </GroupBox>
+            <CheckBox x:Name="headless" Content="HeadLess" IsChecked="False"/>
+
+            <Button x:Name="search" Content="Search" Width="100" Margin="5" Click="search_Click"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
